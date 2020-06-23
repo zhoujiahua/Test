@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="./js/redFile.js"></script>
+    <script>
+        var dataDB = [],
+            urlArr = ['./data/test.json?callback=success',
+                './data/test.json?callback=success',
+                './data/test.json?callback=success',
+                './data/test.json?callback=success',
+                './data/test.json?callback=success'
+            ]
+        $.each(urlArr, function (k, v) {
+            $.createScript(v).remove();
+        })
+
+        function success(res) {
+            console.log(res);
+            dataDB.push(res)
+        }
+
+        console.log(dataDB);
+    </script>
+</body>
+
+</html>
